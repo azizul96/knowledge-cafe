@@ -10,9 +10,18 @@ function App() {
   const [readingTime, setReadingTime] = useState(0)
 
 
-  const bookmarksHandler = blog =>{
-    const newBookmarks = [...bookmarks, blog]
-    setBookmarks(newBookmarks)
+  const bookmarksHandler = (blog, id) =>{
+
+    const isExist = bookmarks.find(bookmark => bookmark.id == id)
+
+    if(isExist){
+      return alert('Already Added')
+    }
+    else{
+      const newBookmarks = [...bookmarks, blog]
+      setBookmarks(newBookmarks)
+    }
+    
   }
 
   const readingTimeHandler = (time, id) =>{
@@ -29,7 +38,7 @@ function App() {
 
       <Header></Header>
       <div className=" md:flex gap-5">
-        <Blogs bookmarksHandler={bookmarksHandler} readingTimeHandler={readingTimeHandler}></Blogs>
+        <Blogs bookmarksHandler={bookmarksHandler} readingTimeHandler={readingTimeHandler} ></Blogs>
         <Bookmarks bookmarks={bookmarks} readingTime={readingTime}></Bookmarks>
       </div>
     </div>

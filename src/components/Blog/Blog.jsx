@@ -17,7 +17,7 @@ const Blog = ({blog, bookmarksHandler, readingTimeHandler}) => {
                     
                 <div>
                     <span>{reading_time} min read</span>
-                    <button onClick={()=> bookmarksHandler(blog)} className="ml-2"><i className="fa-solid fa-bookmark text-red-500"></i></button>
+                    <button onClick={()=> bookmarksHandler(blog, id)} className="ml-2"><i className="fa-solid fa-bookmark text-red-500"></i></button>
                 </div>
             </div>
             <h1 className="text-4xl font-bold mb-5">{title}</h1>
